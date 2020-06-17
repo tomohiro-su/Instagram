@@ -70,6 +70,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="captionLabel" destination="tri-yN-iFJ" id="6mc-4f-eFW"/>
+                <outlet property="dateLabel" destination="MkP-g9-Wmh" id="RGr-YL-LPO"/>
+                <outlet property="likeButton" destination="RxQ-Bv-PJa" id="fqM-dx-86Z"/>
+                <outlet property="likeLabel" destination="UDU-sX-jeE" id="GvJ-ko-eeR"/>
+                <outlet property="postImageView" destination="K5s-Yi-Sol" id="iK4-Ym-slR"/>
+            </connections>
             <point key="canvasLocation" x="-49.275362318840585" y="141.96428571428569"/>
         </tableViewCell>
     </objects>

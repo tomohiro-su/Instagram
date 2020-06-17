@@ -137,6 +137,9 @@
                         <viewLayoutGuide key="safeArea" id="gga-hJ-sm8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" image="setting" id="xr9-YV-l5E"/>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="A8U-ta-qbc" id="P8S-ug-94e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F51-EQ-XTR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

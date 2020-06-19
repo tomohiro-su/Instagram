@@ -13,6 +13,7 @@
 		2C5F99C72499AEE100F891EC /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F99C52499AEE100F891EC /* PostTableViewCell.swift */; };
 		2C5F99C82499AEE100F891EC /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5F99C62499AEE100F891EC /* PostTableViewCell.xib */; };
 		2C6130F8249871C200250088 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6130F7249871C200250088 /* GoogleService-Info.plist */; };
+		2C632E16249A936600D78A02 /* IineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C632E15249A936600D78A02 /* IineViewController.swift */; };
 		2C67DC212495FEB80002880C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67DC202495FEB80002880C /* AppDelegate.swift */; };
 		2C67DC232495FEB80002880C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67DC222495FEB80002880C /* SceneDelegate.swift */; };
 		2C67DC282495FEB80002880C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C67DC262495FEB80002880C /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		2C5F99C52499AEE100F891EC /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		2C5F99C62499AEE100F891EC /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		2C6130F7249871C200250088 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2C632E15249A936600D78A02 /* IineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IineViewController.swift; sourceTree = "<group>"; };
 		2C67DC1D2495FEB80002880C /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C67DC202495FEB80002880C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C67DC222495FEB80002880C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				2C67DC202495FEB80002880C /* AppDelegate.swift */,
 				2C67DC222495FEB80002880C /* SceneDelegate.swift */,
 				2C67DC3C2496012D0002880C /* SettingViewController.swift */,
+				2C632E15249A936600D78A02 /* IineViewController.swift */,
 				2C67DC3A249601130002880C /* PostViewController.swift */,
 				2C67DC38249600EF0002880C /* ImageSelectViewController.swift */,
 				2C5F99C52499AEE100F891EC /* PostTableViewCell.swift */,
@@ -245,6 +248,7 @@
 				2C67DC3B249601130002880C /* PostViewController.swift in Sources */,
 				2C67DC3D2496012D0002880C /* SettingViewController.swift in Sources */,
 				2C5F99C42499AE3D00F891EC /* PostData.swift in Sources */,
+				2C632E16249A936600D78A02 /* IineViewController.swift in Sources */,
 				2C67DC352496007B0002880C /* LoginViewController.swift in Sources */,
 				2C67DC212495FEB80002880C /* AppDelegate.swift in Sources */,
 				2C67DC232495FEB80002880C /* SceneDelegate.swift in Sources */,

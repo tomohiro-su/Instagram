@@ -76,6 +76,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
           let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
           cell.setPostData(postArray[indexPath.row])
 
+        // セル内のボタンのアクションをソースコードで設定する
+        cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        
+        cell.iineButton.addTarget(self, action:#selector(footButton(_:forEvent:)), for: .touchUpInside)
+        
           return cell
       }
     /*
@@ -115,5 +120,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                postRef.updateData(["likes": updateValue])
            }
        }
-    
+     // セル内のボタンがタップされた時に呼ばれるメソッド
+          @objc func footButton(_ sender: UIButton, forEvent event: UIEvent) {
+              print("DEBUG_PRINT: iineボタンがタップされました。")
+            self.performSegue(withIdentifier: "toIine", sender: nil)
+          }
+
 }

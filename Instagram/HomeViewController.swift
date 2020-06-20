@@ -16,6 +16,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // 投稿データを格納する配列
     var postArray: [PostData] = []
     
+    var currentPostData :PostData?
+    
     // Firestoreのリスナー
     var listener: ListenerRegistration!
     
@@ -127,14 +129,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-        let postData = postArray[indexPath!.row]
+        self.currentPostData = postArray[indexPath!.row]
+    
+        
+        
+        
         // segueから遷移先のResultViewControllerを取得する
  //       let storyboard :UIStoryboard = self.storyboard!
       //  let iineView = storyboard.instantiateViewController(withIdentifier: "iine")as! IineViewController
         
         // 配列からタップされたインデックスのデータを取り出す
     //    iineView.argString = postData
-        print(postData)
+      //  print(postData)
         
       //  iineViewController.postData = postData
         
@@ -144,5 +150,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.performSegue(withIdentifier: "toIine", sender: nil)
         
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           // segueから遷移先のResultViewControllerを取得する
+           let iineViewController:IineViewController = segue.destination as! IineViewController
+           // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
+        iineViewController.postData = self.currentPostData!
+        
+       }
 }

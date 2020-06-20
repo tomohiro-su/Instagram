@@ -15,41 +15,58 @@ class IineViewController: UIViewController {
     @IBOutlet weak var iineName: UITextField!
     
     @IBOutlet weak var iineText: UITextView!
+        @IBOutlet weak var textField: UITextField!
+        @IBOutlet weak var nameField: UITextField!
     
+    var postData: PostData!
+    var postArray: [PostData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
+              let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+              self.view.addGestureRecognizer(tapGesture)
+
+   //     print(postData.name,postData.caption)
+        // キャプションの表示
+        self.textField.text = "\(postData.name!) : \(postData.caption!)"
     }
+          @objc func dismissKeyboard(){
+              // キーボードを閉じる
+              view.endEditing(true)
+          }
+        
+        // Do any additional setup after loading the view.
+    
     
     // 投稿ボタンをタップしたときに呼ばれるメソッド
     @IBAction func iineButton(_ sender: Any) {
         
-        //        // タップされたセルのインデックスを求める
-        //                 let touch = event.allTouches?.first
-        //                 let point = touch!.location(in: self.tableView)
-        //                 let indexPath = tableView.indexPathForRow(at: point)
-        //
-        //                 // 配列からタップされたインデックスのデータを取り出す
-        //                 let postData = postArray[indexPath!.row]
-        //
-        //                 // likesを更新する
-        //                 if let myid = Auth.auth().currentUser?.uid {
-        //                     // 更新データを作成する
-        //                     var updateValue: FieldValue
-        //                     if postData.isLiked {
-        //                         // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
-        //                         updateValue = FieldValue.arrayRemove([myid])
-        //                     } else {
-        //                         // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
-        //                         updateValue = FieldValue.arrayUnion([myid])
-        //                     }
-        //                     // likesに更新データを書き込む
-        //                     let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-        //                     postRef.updateData(["likes": updateValue])
-        //                 }
-        //
+                // タップされたセルのインデックスを求める
+//                         let touch = event.allTouches?.first
+//                         let point = touch!.location(in: self.tableView)
+//                         let indexPath = tableView.indexPathForRow(at: point)
+        
+                         // 配列からタップされたインデックスのデータを取り出す
+                         let postData = postArray["06ydlj4Imxn9EHo2B1wg"]
+        
+                         // likesを更新する
+                         if let myid = Auth.auth().currentUser?.uid {
+                             // 更新データを作成する
+                             var updateValue: FieldValue
+                             if postData.isLiked {
+                                 // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
+                                 updateValue = FieldValue.arrayRemove([myid])
+                             } else {
+                                 // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
+                                 updateValue = FieldValue.arrayUnion([myid])
+                             }
+                             // likesに更新データを書き込む
+                             let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+                             postRef.updateData(["likes": updateValue])
+                         }
+        
         
         
         // 名前といいねデータの保存場所を定義する

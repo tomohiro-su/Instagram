@@ -12,11 +12,11 @@
             <objects>
                 <viewController storyboardIdentifier="Home" id="aZ0-Hq-tPU" customClass="HomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6QS-9H-AZM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AyI-sH-46N">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -192,7 +192,6 @@
                                 <state key="normal" title="戻る" image="return" catalog="system"/>
                                 <connections>
                                     <action selector="iineButton:" destination="CJK-Mr-o8t" eventType="touchUpInside" id="xW4-TX-E5g"/>
-                                    <segue destination="aZ0-Hq-tPU" kind="show" id="VE4-h7-gZt"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-A0-asP">
@@ -203,6 +202,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vhh-Ay-eIl">
+                                <rect key="frame" x="144" y="498" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RiR-Ym-TVb">
+                                <rect key="frame" x="144" y="576" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -228,6 +239,8 @@
                     <connections>
                         <outlet property="iineName" destination="QWe-P7-Eo7" id="OUH-7X-cfE"/>
                         <outlet property="iineText" destination="hYH-A0-asP" id="goD-1J-e8x"/>
+                        <outlet property="nameField" destination="RiR-Ym-TVb" id="AGU-wu-C8y"/>
+                        <outlet property="textField" destination="Vhh-Ay-eIl" id="KnO-I4-1Bo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLB-ux-M1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -380,7 +393,4 @@
         <image name="return" catalog="system" width="64" height="50"/>
         <image name="setting" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="VE4-h7-gZt"/>
-    </inferredMetricsTieBreakers>
 </document>

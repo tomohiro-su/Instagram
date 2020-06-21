@@ -45,8 +45,8 @@ class PostViewController: UIViewController {
                   "name": name!,
                   "caption": self.textField.text!,
                   "date": FieldValue.serverTimestamp(),
-                  "iname": "",
-                  "iines": ""
+                 // "iname": "",
+                 // "iines": ""
                   ] as [String : Any]
               postRef.setData(postDic)
               // HUDで投稿完了を表示する

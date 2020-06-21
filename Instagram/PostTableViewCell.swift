@@ -17,6 +17,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var iineButton: UIButton!
+    @IBOutlet weak var iineText: UITextField!
     
     
     override func awakeFromNib() {

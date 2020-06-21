@@ -17,7 +17,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var postArray: [PostData] = []
     
     var currentPostData :PostData?
-    
+    var iineCount :Int! = 0
     // Firestoreのリスナー
     var listener: ListenerRegistration!
     
@@ -129,32 +129,54 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-        self.currentPostData = postArray[indexPath!.row]
-    
-        
-        
-        
-        // segueから遷移先のResultViewControllerを取得する
- //       let storyboard :UIStoryboard = self.storyboard!
-      //  let iineView = storyboard.instantiateViewController(withIdentifier: "iine")as! IineViewController
-        
+        var iineNumber = 0
+        var iNumber = 0
         // 配列からタップされたインデックスのデータを取り出す
-    //    iineView.argString = postData
-      //  print(postData)
+        let postData = postArray[indexPath!.row]
         
-      //  iineViewController.postData = postData
+        // likesを更新する
+        let myid = Auth.auth().currentUser?.uid
+        // 更新データを作成する
+        var updateValue: FieldValue
+      //  let iineNumber = postData.iname.count
+        if postData.isIine {
+            
+            updateValue = FieldValue.arrayUnion([myid])
+             var iineCount = 0
+            if self.iNumber = 0 {
+                iineNumber = iineNumber + 1
+            }
+            // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
+            
+        } else {
+            // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
+            updateValue = FieldValue.arrayUnion([myid])
+            iineNumber = iineNumber + 1
+            
+        }
+        // likesに更新データを書き込む
+        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+        print(iineCount,iineNumber)
         
-        //            let indexPath = self.tableView.indexPathForSelectedRow
-        //                    inputViewController.task = taskArray[indexPath!.row]
+        postRef.updateData(["iname\(iineNumber)" : updateValue])
         
-        self.performSegue(withIdentifier: "toIine", sender: nil)
+        // likesに更新データを書き込む
+               let iineRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+               print(iineCount,iineNumber)
+               
+               iineRef.updateData(["iNumber" : iineNumber])
+        
+        //     self.performSegue(withIdentifier: "toIine", sender: nil)
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           // segueから遷移先のResultViewControllerを取得する
-           let iineViewController:IineViewController = segue.destination as! IineViewController
-           // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
-        iineViewController.postData = self.currentPostData!
-        
-       }
+    
+    
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //           // segueから遷移先のResultViewControllerを取得する
+    //           let iineViewController:IineViewController = segue.destination as! IineViewController
+    //           // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
+    //        iineViewController.postData = self.currentPostData!
+    
+    //       }
 }

@@ -10,6 +10,6 @@ import Foundation
 struct Const {
     static let ImagePath = "images"
     static let PostPath = "posts"
-    static let NamePath = "iname"
+  //  static let NamePath = "iname"
     static let IinePath = "iines"
 }

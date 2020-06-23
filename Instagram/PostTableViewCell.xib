@@ -9,21 +9,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="782" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="412" height="782"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="723" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="432" height="723"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="412" height="782"/>
+                <rect key="frame" x="0.0" y="0.0" width="432" height="723"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K5s-Yi-Sol">
-                        <rect key="frame" x="0.0" y="10" width="412" height="412"/>
+                        <rect key="frame" x="0.0" y="10" width="432" height="432"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="K5s-Yi-Sol" secondAttribute="height" multiplier="1:1" id="yxU-ci-Mt1"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxQ-Bv-PJa">
-                        <rect key="frame" x="30" y="432" width="40" height="40"/>
+                        <rect key="frame" x="30" y="452" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="82d-Rq-S0p"/>
                             <constraint firstAttribute="width" constant="40" id="YZS-Cz-uZn"/>
@@ -31,7 +31,7 @@
                         <state key="normal" title="Button" image="like_none"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDU-sX-jeE">
-                        <rect key="frame" x="80" y="441.5" width="40" height="21"/>
+                        <rect key="frame" x="80" y="461.5" width="40" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="aOg-Gb-vbc"/>
                         </constraints>
@@ -45,24 +45,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBj-zk-Bhw">
+                        <rect key="frame" x="375" y="499" width="62" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="コメント"/>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tri-yN-iFJ">
-                        <rect key="frame" x="30" y="542" width="352" height="40"/>
+                        <rect key="frame" x="46" y="607" width="352" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soK-9A-gLz">
-                        <rect key="frame" x="0.0" y="608" width="412" height="163"/>
+                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLl-ob-it2">
+                        <rect key="frame" x="20" y="497" width="268" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    </tableView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBj-zk-Bhw">
-                        <rect key="frame" x="311" y="481" width="62" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="コメント"/>
-                    </button>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VfR-bb-qC6">
-                        <rect key="frame" x="32" y="481" width="261" height="34"/>
+                        <rect key="frame" x="128" y="458" width="261" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -90,12 +92,13 @@
                 <outlet property="captionLabel" destination="tri-yN-iFJ" id="6mc-4f-eFW"/>
                 <outlet property="dateLabel" destination="MkP-g9-Wmh" id="RGr-YL-LPO"/>
                 <outlet property="iineButton" destination="ZBj-zk-Bhw" id="tXD-lX-twS"/>
+                <outlet property="iineData" destination="ZLl-ob-it2" id="vjl-1E-AIq"/>
                 <outlet property="iineText" destination="VfR-bb-qC6" id="aQz-jF-hy6"/>
                 <outlet property="likeButton" destination="RxQ-Bv-PJa" id="fqM-dx-86Z"/>
                 <outlet property="likeLabel" destination="UDU-sX-jeE" id="GvJ-ko-eeR"/>
                 <outlet property="postImageView" destination="K5s-Yi-Sol" id="iK4-Ym-slR"/>
             </connections>
-            <point key="canvasLocation" x="-49.275362318840585" y="214.28571428571428"/>
+            <point key="canvasLocation" x="-34.782608695652179" y="194.53125"/>
         </tableViewCell>
     </objects>
     <resources>

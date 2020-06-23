@@ -17,7 +17,7 @@ class PostData: NSObject {
     var likes: [String] = []
     var isLiked: Bool = false
     var iname:  [String] = []
-    var iines: String?
+    var iines:  [String] = [] //コメント
     var isIine: Bool = false
     var iineNumber: Int = 0
     var iNumber: Int = 0
@@ -36,6 +36,11 @@ class PostData: NSObject {
 
         if let likes = postDic["likes"] as? [String] {
             self.likes = likes
+       //iineの配列
+            if let iines = postDic["iines"] as? [String] {
+                   self.iines = iines
+             
+            
         }
         if let myid = Auth.auth().currentUser?.uid {
             // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
@@ -46,16 +51,15 @@ class PostData: NSObject {
         }
         if let myid = Auth.auth().currentUser?.uid {
             // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
-            if self.iname.firstIndex(of: myid) != nil {
+            if self.iines.firstIndex(of: myid) != nil {
                 // myidがあれば、いいねを押していると認識する。
                 self.isIine = true
-                if self.iNumber == 0 {
-                iineNumber = iineNumber + 1
+                
                 }
             }
         }
         //self.iname = postDic["iname"] as? String
-        self.iines = postDic["iines"] as? String
+    //    self.iines = postDic["iines"] as? String
     }
     
 }

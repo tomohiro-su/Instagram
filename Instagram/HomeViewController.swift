@@ -115,7 +115,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 updateValue = FieldValue.arrayRemove([myid])
             } else {
                 // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
-                updateValue = FieldValue.arrayUnion([myid])
+                updateValue = FieldValue.arrayUnion([myid,"suda"])
             }
             // likesに更新データを書き込む
             let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
@@ -129,54 +129,72 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-        var iineNumber = 0
-        var iNumber = 0
+       // var iines = iineText.text
+       // var iNumber = 0
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         
-        // likesを更新する
-        let myid = Auth.auth().currentUser?.uid
-        // 更新データを作成する
-        var updateValue: FieldValue
-      //  let iineNumber = postData.iname.count
-        if postData.isIine {
-            
-            updateValue = FieldValue.arrayUnion([myid])
-             var iineCount = 0
-            if self.iNumber = 0 {
-                iineNumber = iineNumber + 1
-            }
-            // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
-            
-        } else {
-            // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
-            updateValue = FieldValue.arrayUnion([myid])
-            iineNumber = iineNumber + 1
-            
-        }
-        // likesに更新データを書き込む
-        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-        print(iineCount,iineNumber)
+        // 配列からタップされたインデックスのデータを取り出す
+         //     let postData = postArray[indexPath!.row]
+        let iines = iineText.text
+              // likesを更新する
+              let myid = Auth.auth().currentUser?.uid
+                  // 更新データを作成する
+                  var updateValue: FieldValue
+//                  if postData.isIine {
+//                      // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
+//           //           updateValue = FieldValue.arrayRemove([myid])
+//                  } else {
+//                      // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
+        updateValue = FieldValue.arrayUnion([myid,iines])
+//                  }
+                  // likesに更新データを書き込む
+                  let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+                 postRef.updateData(["iines": updateValue])
+   //           }
+   
+//        // likesを更新する
+//        let myid = Auth.auth().currentUser?.uid
+//        // 更新データを作成する
+//        var updateValue: FieldValue
+//      //  let iineNumber = postData.iname.count
+//        if postData.isIine {
+//
+//            updateValue = FieldValue.arrayUnion([myid])
+//             var iineCount = 0
+//            if self.iNumber = 0 {
+//                iineNumber = iineNumber + 1
+//            }
+//            // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
+//
+//        } else {
+//            // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
+//            updateValue = FieldValue.arrayUnion([myid])
+//            iineNumber = iineNumber + 1
+//
+//        }
+//        // likesに更新データを書き込む
+//        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+//        print(iineCount,iineNumber)
+//
+//        postRef.updateData(["iname\(iineNumber)" : updateValue])
+//
+//        // likesに更新データを書き込む
+//               let iineRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+//               print(iineCount,iineNumber)
+//
+//               iineRef.updateData(["iNumber" : iineNumber])
+//
+//        //     self.performSegue(withIdentifier: "toIine", sender: nil)
         
-        postRef.updateData(["iname\(iineNumber)" : updateValue])
-        
-        // likesに更新データを書き込む
-               let iineRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-               print(iineCount,iineNumber)
-               
-               iineRef.updateData(["iNumber" : iineNumber])
-        
-        //     self.performSegue(withIdentifier: "toIine", sender: nil)
-        
+    
     }
     
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+               // segueから遷移先のResultViewControllerを取得する
+               let iineViewController:IineViewController = segue.destination as! IineViewController
+               // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
+            iineViewController.postData = self.currentPostData!
     
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //           // segueから遷移先のResultViewControllerを取得する
-    //           let iineViewController:IineViewController = segue.destination as! IineViewController
-    //           // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
-    //        iineViewController.postData = self.currentPostData!
-    
-    //       }
+           }
 }

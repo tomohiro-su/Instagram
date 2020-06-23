@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseUI
 
-class PostTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell,UITableViewDelegate  {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
@@ -19,6 +19,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var iineButton: UIButton!
     @IBOutlet weak var iineText: UITextField!
     
+    @IBOutlet weak var iineData: UITextField!
+    
+  //  @IBOutlet weak var iineTableView: UITableView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +30,7 @@ class PostTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+//        iineTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")        // Configure the view for the selected state
     }
     // PostDataの内容をセルに表示
     func setPostData(_ postData: PostData) {
@@ -61,6 +63,25 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        
+//        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//            return 2
+//        }
+        self.iineData.text = ""
+        self.iineData.text = "\(postData.likes)"
+        
+//        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+//            let cell = tableView.dequeueReusableCell(withIdentifier : "Cell", for: indexPath) as! UITableViewCell
+//            cell.textLabel?.text = String(indexPath.row)
+//            return cell
+//        }
+//
     }
+//    override func prepare(for segue: PostTableViewCell, sender: Any?) {
+//                // segueから遷移先のResultViewControllerを取得する
+//                let iineViewController:IineViewController = segue.destination as! iineTableView
+//                // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
+//             iineViewController.postData = self.currentPostData!
+//    }
     
 }

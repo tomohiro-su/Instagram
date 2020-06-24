@@ -29,7 +29,7 @@ class IineViewController: UIViewController {
         
         //     print(postData.name,postData.caption)
         // キャプションの表示
-        self.textField.text = "\(postData.name!) : \(postData.caption!)"
+        self.textField.text! = "\(postData.name!) : \(postData.caption!)"
     }
     @objc func dismissKeyboard(){
         // キーボードを閉じる
@@ -50,24 +50,25 @@ class IineViewController: UIViewController {
 //               let postData = postArray[indexPath!.row]
 
                // likesを更新する
-               if let myid = Auth.auth().currentUser?.uid {
+               if let userName = Auth.auth().currentUser?.displayName {
                    // 更新データを作成する
                    var updateValue: FieldValue
-                var updateValue1: FieldValue
+//                var updateValue1: FieldValue
                              
 //                   if postData.isLiked {
                        // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
 //                       updateValue = FieldValue.arrayRemove([myid])
 //                   } else {
 //                       // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
-                updateValue = FieldValue.arrayUnion([myid])
-                updateValue1 = FieldValue.arrayUnion([iineText.text])
+                let iineT = "\(userName) : \(iineText.text!)"
+                updateValue = FieldValue.arrayUnion([iineT])
+//                updateValue1 = FieldValue.arrayUnion([iineText.text])
                           
 //                   }
                    // likesに更新データを書き込む
                    let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
                    postRef.updateData(["iines": updateValue])
-                postRef.updateData(["iineText": updateValue1])
+//                postRef.updateData(["iineText": updateValue1])
                              
                }
 

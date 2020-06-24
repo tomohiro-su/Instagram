@@ -67,10 +67,12 @@ class PostTableViewCell: UITableViewCell,UITableViewDelegate  {
 //            return 2
 //        }
         self.iineData.text = ""
-       
-       // for i in 0...postData.iines.count{
-        self.iineData.text = "\(postData.iines) : \(postData.iineText)"
-       // }
+        var iText = ""
+        for iine in postData.iines{
+            iText += "\(iine)\n"
+        }
+          self.iineData.text = iText
+        print(iText)
 //        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
 //            let cell = tableView.dequeueReusableCell(withIdentifier : "Cell", for: indexPath) as! UITableViewCell
 //            cell.textLabel?.text = String(indexPath.row)

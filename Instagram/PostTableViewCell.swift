@@ -73,11 +73,6 @@ class PostTableViewCell: UITableViewCell,UITableViewDelegate  {
         }
           self.iineData.text = iText
         print(iText)
-//        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-//            let cell = tableView.dequeueReusableCell(withIdentifier : "Cell", for: indexPath) as! UITableViewCell
-//            cell.textLabel?.text = String(indexPath.row)
-//            return cell
-//        }
-//
+
     }
 }

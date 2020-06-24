@@ -130,7 +130,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
          self.currentPostData = postArray[indexPath!.row]
-  
+        
+        
+        
     self.performSegue(withIdentifier: "toIine", sender: nil)
         
     

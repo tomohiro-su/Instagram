@@ -36,32 +36,24 @@ class PostData: NSObject {
         
         if let likes = postDic["likes"] as? [String] {
             self.likes = likes
-            //iineの配列
-            if let iines = postDic["iines"] as? [String] {
-                self.iines = iines
-                if let iineText = postDic["iineText"] as? [String] {
-                    self.iineText = iineText
-                    
-                }
-                if let myid = Auth.auth().currentUser?.uid {
-                    // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
-                    if self.likes.firstIndex(of: myid) != nil {
-                        // myidがあれば、いいねを押していると認識する。
-                        self.isLiked = true
-                    }
-                }
-                //        if let myid = Auth.auth().currentUser?.uid {
-                //            // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
-                //            if self.iines.firstIndex(of: myid) != nil {
-                //                // myidがあれば、いいねを押していると認識する。
-                //                self.isIine = true
-                //
-                //                }
-                //            }
-            }
-            //self.iname = postDic["iname"] as? String
-            //    self.iines = postDic["iines"] as? String
         }
+        if let myid = Auth.auth().currentUser?.uid {
+            // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
+            if self.likes.firstIndex(of: myid) != nil {
+                // myidがあれば、いいねを押していると認識する。
+                self.isLiked = true
+            }
+        }
+        
+        //iineの配列
+        if let iines = postDic["iines"] as? [String] {
+            self.iines = iines
+        }
+        if let iineText = postDic["iineText"] as? [String] {
+            self.iineText = iineText
+            
+        }
+     
     }
-    
+
 }

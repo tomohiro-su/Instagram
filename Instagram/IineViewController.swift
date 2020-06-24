@@ -38,8 +38,7 @@ class IineViewController: UIViewController {
     @IBAction func iineButton(_ sender: Any) {
         
 
-
-               // likesを更新する
+               // linesを更新する
                if let userName = Auth.auth().currentUser?.displayName {
                    // 更新データを作成する
                    var updateValue: FieldValue
@@ -50,11 +49,12 @@ class IineViewController: UIViewController {
 //                updateValue1 = FieldValue.arrayUnion([iineText.text])
                           
 //                   }
-                   // likesに更新データを書き込む
+                   // iinesに更新データを書き込む
                    let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
                    postRef.updateData(["iines": updateValue])
 //                postRef.updateData(["iineText": updateValue1])
-                             
+              
+                
                }
 
 
@@ -73,7 +73,7 @@ class IineViewController: UIViewController {
      */
     
     override func viewDidAppear(_ animated: Bool) {
-        print(self.postData)
+       // print(self.postData)
     }
     
 }

@@ -63,9 +63,7 @@ class PostTableViewCell: UITableViewCell,UITableViewDelegate  {
             self.likeButton.setImage(buttonImage, for: .normal)
         }
         
-//        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return 2
-//        }
+
         self.iineData.text = ""
         var iText = ""
         for iine in postData.iines{

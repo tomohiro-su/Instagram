@@ -16,50 +16,52 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
-    var iname:  [String] = []
+    var iineText:  [String] = []
     var iines:  [String] = [] //コメント
     var isIine: Bool = false
     var iineNumber: Int = 0
     var iNumber: Int = 0
-
+    
     init(document: QueryDocumentSnapshot) {
         self.id = document.documentID
-
+        
         let postDic = document.data()
-
+        
         self.name = postDic["name"] as? String
-
+        
         self.caption = postDic["caption"] as? String
-
+        
         let timestamp = postDic["date"] as? Timestamp
         self.date = timestamp?.dateValue()
-
+        
         if let likes = postDic["likes"] as? [String] {
             self.likes = likes
-       //iineの配列
+            //iineの配列
             if let iines = postDic["iines"] as? [String] {
-                   self.iines = iines
-             
-            
-        }
-        if let myid = Auth.auth().currentUser?.uid {
-            // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
-            if self.likes.firstIndex(of: myid) != nil {
-                // myidがあれば、いいねを押していると認識する。
-                self.isLiked = true
-            }
-        }
-        if let myid = Auth.auth().currentUser?.uid {
-            // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
-            if self.iines.firstIndex(of: myid) != nil {
-                // myidがあれば、いいねを押していると認識する。
-                self.isIine = true
-                
+                self.iines = iines
+                if let iineText = postDic["iineText"] as? [String] {
+                    self.iineText = iineText
+                    
                 }
+                if let myid = Auth.auth().currentUser?.uid {
+                    // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
+                    if self.likes.firstIndex(of: myid) != nil {
+                        // myidがあれば、いいねを押していると認識する。
+                        self.isLiked = true
+                    }
+                }
+                //        if let myid = Auth.auth().currentUser?.uid {
+                //            // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
+                //            if self.iines.firstIndex(of: myid) != nil {
+                //                // myidがあれば、いいねを押していると認識する。
+                //                self.isIine = true
+                //
+                //                }
+                //            }
             }
+            //self.iname = postDic["iname"] as? String
+            //    self.iines = postDic["iines"] as? String
         }
-        //self.iname = postDic["iname"] as? String
-    //    self.iines = postDic["iines"] as? String
     }
     
 }

@@ -12,12 +12,11 @@ import SVProgressHUD
 
 class IineViewController: UIViewController {
     
-    @IBOutlet weak var iineName: UITextField!
-    
-    @IBOutlet weak var iineText: UITextView!
+  
+    @IBOutlet weak var iineText: UITextField!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var nameField: UITextField!
     
+
     var postData: PostData!
     var postArray: [PostData] = []
     
@@ -42,30 +41,36 @@ class IineViewController: UIViewController {
     // いいねボタンをタップしたときに呼ばれるメソッド
     @IBAction func iineButton(_ sender: Any) {
         
-//         // タップされたセルのインデックスを求める
+         // タップされたセルのインデックスを求める
 //               let touch = event.allTouches?.first
 //               let point = touch!.location(in: self.tableView)
 //               let indexPath = tableView.indexPathForRow(at: point)
 //
 //               // 配列からタップされたインデックスのデータを取り出す
 //               let postData = postArray[indexPath!.row]
-//
-//               // likesを更新する
-//               if let myid = Auth.auth().currentUser?.uid {
-//                   // 更新データを作成する
-//                   var updateValue: FieldValue
+
+               // likesを更新する
+               if let myid = Auth.auth().currentUser?.uid {
+                   // 更新データを作成する
+                   var updateValue: FieldValue
+                var updateValue1: FieldValue
+                             
 //                   if postData.isLiked {
-//                       // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
+                       // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
 //                       updateValue = FieldValue.arrayRemove([myid])
 //                   } else {
 //                       // 今回新たにいいねを押した場合は、myidを追加する更新データを作成
-//                       updateValue = FieldValue.arrayUnion([myid])
+                updateValue = FieldValue.arrayUnion([myid])
+                updateValue1 = FieldValue.arrayUnion([iineText.text])
+                          
 //                   }
-//                   // likesに更新データを書き込む
-//                   let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-//                   postRef.updateData(["likes": updateValue])
-//               }
-//
+                   // likesに更新データを書き込む
+                   let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+                   postRef.updateData(["iines": updateValue])
+                postRef.updateData(["iineText": updateValue1])
+                             
+               }
+
         
 //        var updateValue: FieldValue!
 //        let myid = Auth.auth().currentUser?.uid

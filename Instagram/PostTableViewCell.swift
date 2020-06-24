@@ -17,9 +17,8 @@ class PostTableViewCell: UITableViewCell,UITableViewDelegate  {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var iineButton: UIButton!
-    @IBOutlet weak var iineText: UITextField!
     
-    @IBOutlet weak var iineData: UITextField!
+    @IBOutlet weak var iineData:  UILabel!
     
   //  @IBOutlet weak var iineTableView: UITableView!
     
@@ -68,8 +67,10 @@ class PostTableViewCell: UITableViewCell,UITableViewDelegate  {
 //            return 2
 //        }
         self.iineData.text = ""
-        self.iineData.text = "\(postData.likes)"
-        
+       
+       // for i in 0...postData.iines.count{
+        self.iineData.text = "\(postData.iines) : \(postData.iineText)"
+       // }
 //        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
 //            let cell = tableView.dequeueReusableCell(withIdentifier : "Cell", for: indexPath) as! UITableViewCell
 //            cell.textLabel?.text = String(indexPath.row)
@@ -77,11 +78,4 @@ class PostTableViewCell: UITableViewCell,UITableViewDelegate  {
 //        }
 //
     }
-//    override func prepare(for segue: PostTableViewCell, sender: Any?) {
-//                // segueから遷移先のResultViewControllerを取得する
-//                let iineViewController:IineViewController = segue.destination as! iineTableView
-//                // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
-//             iineViewController.postData = self.currentPostData!
-//    }
-    
 }

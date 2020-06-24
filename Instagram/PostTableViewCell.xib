@@ -46,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBj-zk-Bhw">
-                        <rect key="frame" x="375" y="499" width="62" height="30"/>
+                        <rect key="frame" x="311" y="499" width="62" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="コメント"/>
                     </button>
@@ -56,24 +56,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLl-ob-it2">
-                        <rect key="frame" x="20" y="497" width="268" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
-                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VfR-bb-qC6">
-                        <rect key="frame" x="128" y="458" width="261" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qce-mb-aiM">
+                        <rect key="frame" x="165" y="452" width="208" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="RxQ-Bv-PJa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="1tt-1B-vOj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="tri-yN-iFJ" secondAttribute="bottom" constant="10" id="43o-dV-Ehc"/>
                     <constraint firstItem="UDU-sX-jeE" firstAttribute="leading" secondItem="RxQ-Bv-PJa" secondAttribute="trailing" constant="10" id="8md-OD-PuF"/>
+                    <constraint firstItem="Qce-mb-aiM" firstAttribute="top" secondItem="K5s-Yi-Sol" secondAttribute="bottom" constant="10" id="CRr-vw-6Bg"/>
                     <constraint firstItem="tri-yN-iFJ" firstAttribute="top" secondItem="RxQ-Bv-PJa" secondAttribute="bottom" constant="10" id="II0-SQ-PXO"/>
                     <constraint firstItem="K5s-Yi-Sol" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IWi-mj-c3q"/>
                     <constraint firstItem="MkP-g9-Wmh" firstAttribute="leading" secondItem="UDU-sX-jeE" secondAttribute="trailing" constant="10" id="JZb-1R-uCj"/>
@@ -92,8 +86,7 @@
                 <outlet property="captionLabel" destination="tri-yN-iFJ" id="6mc-4f-eFW"/>
                 <outlet property="dateLabel" destination="MkP-g9-Wmh" id="RGr-YL-LPO"/>
                 <outlet property="iineButton" destination="ZBj-zk-Bhw" id="tXD-lX-twS"/>
-                <outlet property="iineData" destination="ZLl-ob-it2" id="vjl-1E-AIq"/>
-                <outlet property="iineText" destination="VfR-bb-qC6" id="aQz-jF-hy6"/>
+                <outlet property="iineData" destination="Qce-mb-aiM" id="swd-Yf-0FJ"/>
                 <outlet property="likeButton" destination="RxQ-Bv-PJa" id="fqM-dx-86Z"/>
                 <outlet property="likeLabel" destination="UDU-sX-jeE" id="GvJ-ko-eeR"/>
                 <outlet property="postImageView" destination="K5s-Yi-Sol" id="iK4-Ym-slR"/>
